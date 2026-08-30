@@ -3,7 +3,7 @@ Adds support for syntax highlighting for the Genius Extension Language (.gel) la
 
 Has basic support for almost all built in functions, and commands. I didn't go much farther then that however, and Syntax highlighting for variables and functions is left out of this current version. I also left out highlighting for plotting commands, mainly because they have issues when running in kate's built in runtime.
 
-<img width="254" height="276" alt="Screenshot_20260830_134145" src="https://github.com/user-attachments/assets/3a9b336e-14fc-4f8b-a88c-a5e9233d9c7e" />
+<img width="245" height="273" alt="Screenshot_20260830_183256" src="https://github.com/user-attachments/assets/6a1507d0-676b-40a9-b17b-1811c37bf8d1" />
 
 | Links | Link info | 
 | :---: | :---: |
