@@ -2,7 +2,7 @@
 <language name="GEL" version="1" kateversion="2.4" section="Sources" extensions="*.gel">
 <highlighting>
 
-        <list name="BuiltinFunctions">
+        <list name="keyword">
             <item>for</item>
             <item>if</item>
             <item>else</item>
@@ -15,9 +15,18 @@
             <item>in</item>
             <item>break</item>
             <item>continue</item>
+            <item>function</item>
+            <item>error</item>
+            <item>exit</item>
+            <item>print</item>
+            <item>printn</item>
+            <item>PrintTable</item>
+            <item>wait</item>
+        </list>
+
+        <list name="BuiltinFunctions">
             <item>sum</item>
             <item>prod</item>
-            <item>function</item>
             <item>AskButtons</item>
             <item>AskString</item>
             <item>Compose</item>
@@ -29,11 +38,6 @@
             <item>Parse</item>
             <item>SetFunctionFlags</item>
             <item>DisplayVariables</item>
-            <item>error</item>
-            <item>exit</item>
-            <item>print</item>
-            <item>printn</item>
-            <item>PrintTable</item>
             <item>protect</item>
             <item>ProtectAll</item>
             <item>set</item>
@@ -43,7 +47,6 @@
             <item>UndefineAll</item>
             <item>unprotect</item>
             <item>UserVariables</item>
-            <item>wait</item>
             <item>AbsoluteValue</item>
             <item>Chop</item>
             <item>ComplexConjugate</item>
@@ -398,10 +401,6 @@
             <item>SymbolicNthDerivative</item>
             <item>SymbolicNthDerivativeTry</item>
             <item>SymbolicTaylorApproximationFunction</item>
-
-
-
-
         </list>
 
         <list name="logic">
@@ -473,10 +472,10 @@
             <item>ToeplitzMatrix</item>
             <item>IsIn</item>
             <item>IsSubset</item>
-
         </list>
 
         <list name="constants">
+            <item>null</item>
             <item>pi</item>
             <item>e</item>
             <item>Gravity</item>
@@ -488,12 +487,48 @@
         <contexts>
 
             <context attribute="Normal Text" lineEndContext="#pop" name="Normal Text" >
+
                 <keyword attribute="Functions" context="#stay" String="BuiltinFunctions" />
                 <keyword attribute="Logic" context="#pop" String="logic" />
                 <keyword attribute="Constants" context="#pop" String="constants" />
+                <keyword attribute="Keywords" context="#pop" String="keyword" />
+                <Int attribute="Integer" />
+                <Float attribute="Float" />
 
                 <StringDetect attribute="Comment" context="Commentcontiune" String="#" lookAhead="1"/>
+
+                <StringDetect attribute="Float" String="." />
+
+                <StringDetect attribute="Logic" String="+" />
+                <StringDetect attribute="Logic" String="-" />
+                <StringDetect attribute="Logic" String="/" />
+                <StringDetect attribute="Logic" String="*" />
+                <StringDetect attribute="Logic" String="=" />
+                <StringDetect attribute="Logic" String="\^" />
+                <StringDetect attribute="Logic" String="!" />
+                <StringDetect attribute="Logic" String="&gt;" />
+                <StringDetect attribute="Logic" String="&lt;" />
+                <StringDetect attribute="Logic" String=":=" />
+
+                <RegExpr context="Qoutes" attribute="String" String="&quot;" beginRegion="RegionQoute" />
+                <RegExpr context="Apostrophes" attribute="String" String="&apos;" beginRegion="RegionApostrophe" />
+
+                <StringDetect attribute="Brackets" String="(" />
+                <StringDetect attribute="Brackets" String=")" />
+                <StringDetect attribute="Brackets" String="[" />
+                <StringDetect attribute="Brackets" String="]" />
+
             </context>
+
+
+            <context name="Qoutes" attribute="String" lineEndContext="#stay">
+                <StringDetect context="#pop!Normal Text" attribute="String" String="&quot;" dynamic="true" endRegion="RegionQoute"/>
+            </context>
+
+            <context name="Apostrophes" attribute="String" lineEndContext="#stay">
+                <StringDetect context="#pop!Normal Text" attribute="String" String="&apos;" dynamic="true" endRegion="RegionApostrophe"/>
+            </context>
+
 
             <context name="Commentcontiune" attribute="Normal Text" fallthroughContext="#pop" lineEndContext="#pop">
                 <IncludeRules context="##Doxygen"/>
@@ -508,10 +543,15 @@
 
         <itemDatas>
             <itemData name="Normal Text" defStyleNum="dsNormal" />
-            <itemData name="Functions" defStyleNum="dsBuiltIn" />
+            <itemData name="Keywords" defStyleNum="dsKeyword" />
+            <itemData name="Functions" defStyleNum="dsFunction" />
             <itemData name="Logic" defStyleNum="dsOperator" />
             <itemData name="Constants" defStyleNum="dsConstant" />
+            <itemData name="Integer" defStyleNum="dsDataType" />
+            <itemData name="Float" defStyleNum="dsDataType" />
             <itemData name="Comment" defStyleNum="dsComment"/>
+            <itemData name="String" defStyleNum="dsString" />
+            <itemData name="Brackets" defStyleNum="dsControlFlow" />
         </itemDatas>
 
 </highlighting>
