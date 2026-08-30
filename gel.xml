@@ -504,7 +504,7 @@
                 <StringDetect attribute="Logic" String="/" />
                 <StringDetect attribute="Logic" String="*" />
                 <StringDetect attribute="Logic" String="=" />
-                <StringDetect attribute="Logic" String="\^" />
+                <StringDetect attribute="Logic" String="^" />
                 <StringDetect attribute="Logic" String="!" />
                 <StringDetect attribute="Logic" String="&gt;" />
                 <StringDetect attribute="Logic" String="&lt;" />
