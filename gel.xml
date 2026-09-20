@@ -22,6 +22,7 @@
             <item>printn</item>
             <item>PrintTable</item>
             <item>wait</item>
+            <item>mod</item>
         </list>
 
         <list name="BuiltinFunctions">
@@ -506,6 +507,17 @@
                 <StringDetect attribute="Logic" String="=" />
                 <StringDetect attribute="Logic" String="^" />
                 <StringDetect attribute="Logic" String="!" />
+                <StringDetect attribute="Logic" String=";" />
+                <StringDetect attribute="Logic" String=":" />
+                <StringDetect attribute="Logic" String="|" />
+                <StringDetect attribute="Logic" String="^" />
+                <StringDetect attribute="Logic" String=".^" />
+                <StringDetect attribute="Logic" String=".*" />
+                <StringDetect attribute="Logic" String="./" />
+                <StringDetect attribute="Logic" String="\" />
+                <StringDetect attribute="Logic" String=".\" />
+                <StringDetect attribute="Logic" String="%" />
+                <StringDetect attribute="Logic" String=".%" />
                 <StringDetect attribute="Logic" String="&gt;" />
                 <StringDetect attribute="Logic" String="&lt;" />
                 <StringDetect attribute="Logic" String=":=" />
